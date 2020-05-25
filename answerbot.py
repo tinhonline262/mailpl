@@ -13,7 +13,7 @@ BOT_OWNER_ROLE = 'RUNNER' # change to what you need
  
 
  
-oot_channel_id_list = ["707120277196242995","706883574036693064","712991201900363796","693960182803333150","706404806738051072","699217974946693221","707477377495859200","711582955713200188","694353173409824813","709321813573894184"]
+oot_channel_id_list = ["713349059259400243","714446952586280992","713398517544255599"]
 answer_pattern = re.compile(r'(not|n|e)?([1-3]{1})(\?)?(cnf|cf|sure|s)?(\?)?$', re.IGNORECASE)
 
 apgscore = 2952
@@ -61,7 +61,7 @@ class SelfBot(discord.Client):
 
     async def on_ready(self):
         print("======================")
-        print("Nelson Trivia Self Bot")
+        print("Trivia Self Bot")
         print("Connected to discord.")
         print("User: " + self.user.name)
         print("ID: " + str(self.user.id))
@@ -118,7 +118,7 @@ class Bot(discord.Client):
         self.answer_scores = answer_scores
 
         # embed creation
-        self.embed=discord.Embed(title="__Trivia Support Pro🥒__", description= '```Đã kết nối tới con Hq Private...🤖```',colour = discord.Colour.red())
+        self.embed=discord.Embed(title="__Trivia Support Pro🥒__", description= '```Đã kết nối tới con Mail+...🤖```',colour = discord.Colour.red())
         self.embed.set_author(name ='',url=' ',icon_url='https://cdn.discordapp.com/attachments/699517929435168768/711962977296973864/1589813196193.jpg')
         self.embed.add_field(name="Option 1", value="0", inline=False)
         self.embed.add_field(name="Option 2", value="0", inline=False)
@@ -209,7 +209,7 @@ class Bot(discord.Client):
 
         await self.clear_results()
         await self.update_embeds()
-        await self.change_presence(activity=discord.Game(name='command: hq'))
+        await self.change_presence(activity=discord.Game(name='command: m'))
 
     async def on_message(self, message):
 
@@ -217,7 +217,7 @@ class Bot(discord.Client):
         if message.author == self.user or message.guild == None:
             return
 
-        if message.content.lower() == "hq":
+        if message.content.lower() == "m":
             await message.delete()
             if BOT_OWNER_ROLE in [role.name for role in message.author.roles]:
                 self.embed_msg = None
@@ -264,7 +264,7 @@ def bot_with_cyclic_update_process(update_event, answer_scores):
     upd_thread.start()
 
     loop = asyncio.get_event_loop()
-    loop.create_task(bot.start('NzA3NTk5OTIzMTA5MDM2MDcz.XsfgXA.Wc0DTW49MoyCqQ2woUPiBBafjrY'))
+    loop.create_task(bot.start('NzE0NTE4MjUyNjk2NTAyMzEy.Xsv1Bw.0Bp029hh7tmtpgrV4IWSFXNXDso'))
     loop.run_forever()
 
 
